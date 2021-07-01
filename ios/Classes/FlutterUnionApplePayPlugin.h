@@ -1,5 +1,5 @@
 //
-//  FlutterUnionApplePayPlugin.m
+//  FlutterUnionApplePayPlugin.h
 //  FlutterUnionApplePayPlugin
 //
 //  Created by luoshimei on 2021/6/30.
