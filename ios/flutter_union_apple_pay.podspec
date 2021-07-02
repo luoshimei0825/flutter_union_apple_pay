@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 A Flutter project for Union Apple Pay.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/luoshimei0825'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'luoshimei' => '0x005168@gmail.com' }
   s.source           = { :path => '.' }

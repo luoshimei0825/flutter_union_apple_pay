@@ -8,15 +8,6 @@
 #import "FlutterUnionApplePayPlugin.h"
 #import "UPAPayPlugin.h"
 
-#if __has_include(<flutter_union_apple_pay/flutter_union_apple_pay-Swift.h>)
-#import <flutter_union_apple_pay/flutter_union_apple_pay-Swift.h>
-#else
-// Support project import fallback if the generated compatibility header
-// is not copied when this plugin is created as a library.
-// https://forums.swift.org/t/swift-static-libraries-dont-copy-generated-objective-c-header/19816
-#import "flutter_union_apple_pay-Swift.h"
-#endif
-
 static NSString *methodChannelName = @"flutter_union_apple_pay";
 static NSString *messageChannelName = @"flutter_union_apple_pay.message";
 
@@ -48,14 +39,14 @@ static NSString *messageChannelName = @"flutter_union_apple_pay.message";
 - (void)handleMethodCall:(FlutterMethodCall *)call result:(FlutterResult)result {
     if ([@"pay" isEqualToString:call.method]) {
         [self pay:call result:result];
-    } else if([@"version" isEqualToString:call.method]){
+    } else if([@"version" isEqualToString:call.method]) {
         [self getVersion:call result:result];
     }  else {
         result(FlutterMethodNotImplemented);
     }
 }
 
-- (void)pay:(FlutterMethodCall *)call result:(FlutterResult)result{
+- (void)pay:(FlutterMethodCall *)call result:(FlutterResult)result {
     NSString *tn = call.arguments[@"tn"];
     NSString *mode = call.arguments[@"mode"];
     NSString *merchantID = call.arguments[@"merchantID"];
@@ -67,7 +58,7 @@ static NSString *messageChannelName = @"flutter_union_apple_pay.message";
     result([NSNumber numberWithBool:ret]);
 }
 
-- (void)getVersion:(FlutterMethodCall *)call result:(FlutterResult)result{
+- (void)getVersion:(FlutterMethodCall *)call result:(FlutterResult)result {
     NSString *version = @"v0.0.1";
     result(version);
 }
