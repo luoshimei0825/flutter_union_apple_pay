@@ -1,0 +1,11 @@
+*.js linguist-language=dart
+*.css linguist-language=dart
+*.html linguist-language=dart
+
+*.js linguist-language=Flutter
+*.css linguist-language=Flutter
+*.html linguist-language=Flutter
+
+*.js linguist-language=Objective-C
+*.css linguist-language=Objective-C
+*.html linguist-language=Objective-C
