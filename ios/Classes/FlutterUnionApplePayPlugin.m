@@ -25,10 +25,10 @@ static NSString *messageChannelName = @"flutter_union_apple_pay.message";
 
 + (void)registerWithRegistrar:(nonnull NSObject<FlutterPluginRegistrar> *)registrar {
     FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:methodChannelName
-                                                                      binaryMessenger:[registrar messenger]];
+                                                                binaryMessenger:[registrar messenger]];
     messageChannel = [FlutterBasicMessageChannel messageChannelWithName:messageChannelName
-                                                             binaryMessenger:[registrar messenger]
-                                                                       codec:[FlutterStringCodec sharedInstance]];
+                                                        binaryMessenger:[registrar messenger]
+                                                                  codec:[FlutterStringCodec sharedInstance]];
 
     UIViewController *viewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     FlutterUnionApplePayPlugin *instance = [[FlutterUnionApplePayPlugin alloc] initWithViewController:viewController];
@@ -54,7 +54,7 @@ static NSString *messageChannelName = @"flutter_union_apple_pay.message";
                                  mode:mode
                        viewController:self.viewController
                              delegate:self
-                             andAPMechantID:merchantID];
+                       andAPMechantID:merchantID];
     result([NSNumber numberWithBool:ret]);
 }
 
@@ -96,7 +96,8 @@ static NSString *messageChannelName = @"flutter_union_apple_pay.message";
     NSData *payloadData = [NSJSONSerialization dataWithJSONObject:dict
                                                           options:NSJSONWritingPrettyPrinted
                                                             error:nil];
-    NSString *json = [[NSString alloc] initWithData:payloadData encoding:NSUTF8StringEncoding];
+    NSString *json = [[NSString alloc] initWithData:payloadData
+                                           encoding:NSUTF8StringEncoding];
     [messageChannel sendMessage:json reply:^(id  _Nullable reply) {
         NSLog(@"reply:%@", reply);
     }];
